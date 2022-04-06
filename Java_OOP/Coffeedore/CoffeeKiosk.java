@@ -37,10 +37,7 @@ public class CoffeeKiosk {
         
         // Write a while loop to collect all user's order items
         while(!itemNumber.equals("q")) {
-            displayMenu();
-            System.out.println("Please enter a menu item index or q to quit:");
             try{
-                itemNumber = System.console().readLine();
                 Integer integerNumber = Integer.parseInt(itemNumber);
                 Item testing = menu.get(integerNumber);
                 new_order.addItem(testing);
@@ -49,6 +46,9 @@ public class CoffeeKiosk {
             }
             // Get the item object from the menu, and add the item to the order
             // Ask them to enter a new item index or q again, and take their input
+            this.displayMenu();
+            System.out.println("Please enter a menu item index or q to quit:");
+            itemNumber = System.console().readLine();
         }
         // After you have collected their order, print the order details 
     	// as the example below. You may use the order's display method.
