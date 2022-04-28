@@ -12,6 +12,5 @@ public class TestAcc {
         acc1.depositMoney(100.0, "savings");
         acc1.withDrawMoney(50.0, "checking");
         acc1.totalMoney();
-
     }
 }
