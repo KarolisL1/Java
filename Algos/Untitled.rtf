@@ -1,0 +1,115 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2638
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 AndaleMono;}
+{\colortbl;\red255\green255\blue255;\red115\green138\blue4;\red171\green173\blue176;\red165\green119\blue5;
+\red35\green37\blue41;\red33\green118\blue199;\red209\green28\blue36;\red37\green146\blue134;\red0\green0\blue0;
+}
+{\*\expandedcolortbl;;\cssrgb\c52157\c60000\c0;\cssrgb\c72549\c73333\c74510;\cssrgb\c70980\c53725\c0;
+\cssrgb\c18431\c19216\c21176;\cssrgb\c14902\c54510\c82353;\cssrgb\c86275\c19608\c18431;\cssrgb\c16471\c63137\c59608;\cssrgb\c0\c0\c0;
+}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 class\cf3 \strokec3  \cf4 \strokec4 Node\cf3 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \cb5 \{\
+    \cf6 \cb1 \strokec6 constructor\cf3 \strokec3 (value)\cb5 \
+    \{\
+        \cf7 \cb1 \strokec7 this\cf3 \cb5 \strokec3 .value=value;\
+        \cf7 \cb1 \strokec7 this\cf3 \cb5 \strokec3 .next=\cf8 \cb1 \strokec8 undefined\cf3 \cb5 \strokec3 ;\
+        \cf7 \cb1 \strokec7 this\cf3 \cb5 \strokec3 .previous=\cf8 \cb1 \strokec8 undefined\cf3 \cb5 \strokec3 ;\
+    \}\
+\};\
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb1 \strokec2 class\cf3 \strokec3  \cf4 \strokec4 Queue\cf3 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \cb5 \{\
+    \cf6 \cb1 \strokec6 constructor\cf3 \strokec3 ()\cb5 \
+    \{\
+        \cf7 \cb1 \strokec7 this\cf3 \cb5 \strokec3 .head=\cf8 \cb1 \strokec8 undefined\cf3 \cb5 \strokec3 ;\
+        \cf7 \cb1 \strokec7 this\cf3 \cb5 \strokec3 .tail=\cf8 \cb1 \strokec8 undefined\cf3 \cb5 \strokec3 ;\
+        \cf7 \cb1 \strokec7 this\cf3 \cb5 \strokec3 .length=\cf8 \cb1 \strokec8 0\cf3 \cb5 \strokec3 ;\
+    \}\
+    \cf6 \cb1 \strokec6 Enqueue\cf3 \strokec3 ()\cb5 \{\}\
+    \cf6 \cb1 \strokec6 Log\cf3 \strokec3 ()\cb5 \
+    \{\
+        \cf2 \cb1 \strokec2 let\cf3 \cb5 \strokec3  str=\cf8 \cb1 \strokec8 ""\cf3 \cb5 \strokec3 ;\
+        \cf2 \cb1 \strokec2 for\cf3 \cb5 \strokec3 (\cf2 \cb1 \strokec2 var\cf3 \cb5 \strokec3  node=\cf7 \cb1 \strokec7 this\cf3 \cb5 \strokec3 .head;node;node=node.next)\
+        \{\
+            str+=node.value+\cf8 \cb1 \strokec8 "->"\cf3 \cb5 \strokec3 ;\
+        \}\
+        \cf7 \cb1 \strokec7 console\cf3 \cb5 \strokec3 .log(str);\
+    \}\
+\};\
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb1 \strokec2 class\cf3 \strokec3  \cf4 \strokec4 Stack\cf3 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \cb5 \{\
+    \cf6 \cb1 \strokec6 constructor\cf3 \strokec3 ()\cb5 \
+    \{\
+        \cf7 \cb1 \strokec7 this\cf3 \cb5 \strokec3 .top=\cf8 \cb1 \strokec8 undefined\cf3 \cb5 \strokec3 ;\
+    \}\
+    \cf6 \cb1 \strokec6 Push\cf3 \strokec3 (value)\cb5 \
+    \{\
+        \cf2 \cb1 \strokec2 if\cf3 \cb5 \strokec3 (!\cf7 \cb1 \strokec7 this\cf3 \cb5 \strokec3 .top)\
+        \{\
+            \cf7 \cb1 \strokec7 this\cf3 \cb5 \strokec3 .top=\cf2 \cb1 \strokec2 new\cf3 \cb5 \strokec3  Node(value);\
+            \cf2 \cb1 \strokec2 return\cf3 \cb5 \strokec3 ;\
+        \}\
+        \cf2 \cb1 \strokec2 let\cf3 \cb5 \strokec3  top=\cf7 \cb1 \strokec7 this\cf3 \cb5 \strokec3 .top;\
+        \cf7 \cb1 \strokec7 this\cf3 \cb5 \strokec3 .top=\cf2 \cb1 \strokec2 new\cf3 \cb5 \strokec3  Node(value);\
+        \cf7 \cb1 \strokec7 this\cf3 \cb5 \strokec3 .top.next=top;\
+    \}\
+    \cf6 \cb1 \strokec6 Pop\cf3 \strokec3 ()\cb5 \
+    \{\
+        \cf2 \cb1 \strokec2 if\cf3 \cb5 \strokec3 (!\cf7 \cb1 \strokec7 this\cf3 \cb5 \strokec3 .top) \cf2 \cb1 \strokec2 return\cf3 \cb5 \strokec3 ;\
+        \cf2 \cb1 \strokec2 let\cf3 \cb5 \strokec3  topVal=\cf7 \cb1 \strokec7 this\cf3 \cb5 \strokec3 .top.value;\
+        \cf7 \cb1 \strokec7 this\cf3 \cb5 \strokec3 .top=\cf7 \cb1 \strokec7 this\cf3 \cb5 \strokec3 .top.next;\
+        \cf2 \cb1 \strokec2 return\cf3 \cb5 \strokec3  topVal;\
+    \}\
+    \cf6 \cb1 \strokec6 IsEmpty\cf3 \strokec3 ()\cb5 \
+    \{\
+        \cf2 \cb1 \strokec2 return\cf3 \cb5 \strokec3  \cf7 \cb1 \strokec7 this\cf3 \cb5 \strokec3 .top==\cf8 \cb1 \strokec8 null\cf3 \cb5 \strokec3 ;\
+    \}\
+\};\
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb1 \strokec2 class\cf3 \strokec3  \cf4 \strokec4 TwoStackQueue\cf3 \strokec3 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \cb5 \{\
+    \cf6 \cb1 \strokec6 constructor\cf3 \strokec3 ()\cb5 \
+    \{\
+        \cf7 \cb1 \strokec7 this\cf3 \cb5 \strokec3 .stack1=\cf2 \cb1 \strokec2 new\cf3 \cb5 \strokec3  Stack();\
+        \cf7 \cb1 \strokec7 this\cf3 \cb5 \strokec3 .stack2=\cf2 \cb1 \strokec2 new\cf3 \cb5 \strokec3  Stack();\
+    \}\
+    \cf6 \cb1 \strokec6 Enqueue\cf3 \strokec3 (value)\cb5 \
+    \{\
+        \cf0 \cb1 \strokec9 /* Your Code Here */\cf3 \cb5 \strokec3 \
+        \cf7 \cb1 \strokec7 this\cf3 \cb5 \strokec3 .stack1.Push(value);\
+    \}\
+    \cf6 \cb1 \strokec6 Dequeue\cf3 \strokec3 ()\cb5 \
+    \{\
+        \cf2 \cb1 \strokec2 while\cf3 \cb5 \strokec3 (!\cf7 \cb1 \strokec7 this\cf3 \cb5 \strokec3 .stack1.IsEmpty())\
+        \{\
+            \cf2 \cb1 \strokec2 let\cf3 \cb5 \strokec3  top=\cf7 \cb1 \strokec7 this\cf3 \cb5 \strokec3 .stack1.Pop();\
+            \cf7 \cb1 \strokec7 this\cf3 \cb5 \strokec3 .stack2.Push(top);\
+        \}\
+        \cf2 \cb1 \strokec2 return\cf3 \cb5 \strokec3  \cf7 \cb1 \strokec7 this\cf3 \cb5 \strokec3 .stack2.Pop();\
+        \cf0 \cb1 \strokec9 /* Your Code Here */\cf3 \cb5 \strokec3 \
+    \}\
+\};\
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb1 \strokec2 let\cf3 \cb5 \strokec3  items1=[\cf8 \cb1 \strokec8 10\cf3 \cb5 \strokec3 ,\cf8 \cb1 \strokec8 20\cf3 \cb5 \strokec3 ,\cf8 \cb1 \strokec8 30\cf3 \cb5 \strokec3 ,\cf8 \cb1 \strokec8 10\cf3 \cb5 \strokec3 ,\cf8 \cb1 \strokec8 30\cf3 \cb5 \strokec3 ,\cf8 \cb1 \strokec8 20\cf3 \cb5 \strokec3 ];\
+\cf2 \cb1 \strokec2 let\cf3 \cb5 \strokec3  items2=[\cf8 \cb1 \strokec8 60\cf3 \cb5 \strokec3 ,\cf8 \cb1 \strokec8 70\cf3 \cb5 \strokec3 ,\cf8 \cb1 \strokec8 80\cf3 \cb5 \strokec3 ,\cf8 \cb1 \strokec8 90\cf3 \cb5 \strokec3 ,\cf8 \cb1 \strokec8 100\cf3 \cb5 \strokec3 ,\cf8 \cb1 \strokec8 110\cf3 \cb5 \strokec3 ];\
+\cf2 \cb1 \strokec2 let\cf3 \cb5 \strokec3  twoStackQueue=\cf2 \cb1 \strokec2 new\cf3 \cb5 \strokec3  TwoStackQueue();\
+\cf2 \cb1 \strokec2 for\cf3 \cb5 \strokec3 (\cf2 \cb1 \strokec2 let\cf3 \cb5 \strokec3  i=\cf8 \cb1 \strokec8 0\cf3 \cb5 \strokec3 ;i<items1.length;i++)\
+\{\
+    twoStackQueue.Enqueue(items1[i]);\
+\}\
+\pard\pardeftab720\partightenfactor0
+\cf7 \cb1 \strokec7 console\cf3 \cb5 \strokec3 .log(twoStackQueue.Dequeue());\
+\cf7 \cb1 \strokec7 console\cf3 \cb5 \strokec3 .log(twoStackQueue.Dequeue());\
+\cf7 \cb1 \strokec7 console\cf3 \cb5 \strokec3 .log(twoStackQueue.Dequeue());\
+\cf7 \cb1 \strokec7 console\cf3 \cb5 \strokec3 .log(twoStackQueue.Dequeue());\
+\cf7 \cb1 \strokec7 console\cf3 \cb5 \strokec3 .log(twoStackQueue.Dequeue());\
+\cf7 \cb1 \strokec7 console\cf3 \cb5 \strokec3 .log(twoStackQueue.Dequeue());}
