@@ -4,8 +4,8 @@ class PNode
     {
         this.priority=priority;
         this.value=value;
-        this.next=undefined;
         this.previous=undefined;
+        this.next=undefined;
     }
 };
 class PQueue
@@ -15,49 +15,42 @@ class PQueue
         this.head=undefined;
         this.tail=undefined;
     }
-    /*
-        Name: Queue.Enqueue(priority,value)
-        Args:
-            1. Integer priority
-            2. Any value
-        Returns: N/A
-        Description:
-            Inserts a new node in the correct order in the list based on the given priority.
-        Time: O(N)
-        Space: O(1)
-    */
     Enqueue(priority,value)
     {
-        /* Your Code Here */
+        if(!this.head)
+        {
+            this.head=new PNode(priority,value);
+            this.tail=this.head;
+            return;
+        }
+        this.tail.next=new PNode(priority,value);
+        this.tail.next.previous=this.tail;
+        this.tail=this.tail.next;
+        let node=this.tail.previous;
+        for(;node&&node.priority>node.next.priority;)
+        {
+            let np=node.priority;
+            let nv=node.value;
+            node.priority=node.next.priority;
+            node.value=node.next.value;
+            node.next.priority=np;
+            node.next.value=nv;
+            node=node.previous;
+        }
     }
-    /*
-        Name: Queue.Dequeue()
-        Args:
-            1. N/A
-        Returns: Any value
-        Description:
-            Returns and removes the node with the highest priority in the list.
-            This should always be the head node.
-        Time: O(1)
-        Space: O(1)
-    */    
     Dequeue()
     {
-        /* Your Code Here */
-    }
-    Log()
-    {
-        for(var str="",node=this.head;node;node=node.next)
-        {
-            str+=node.priority+":"+node.value+"->";
-        }
-        console.log(str);
+        if(!this.head) return;
+        let head=this.head.value;
+        this.head=this.head.next;
+        if(this.head) this.head.previous=undefined;
+        return head;
     }
 };
 let pqueue=new PQueue();
-pqueue.Enqueue(2,"mary");
-pqueue.Enqueue(4,"jim");
-pqueue.Enqueue(1,"ellen");
-pqueue.Enqueue(3,"bob");
-console.log(pqueue.Log()); /* Expected: 1:ellen->2:mary->3:bob->4:jim */
-console.log(pqueue.Dequeue()); /* Expected: "ellen" */
+pqueue.Enqueue(4,"bob");
+pqueue.Enqueue(2,"ellen");
+pqueue.Enqueue(1,"mary");
+pqueue.Enqueue(3,"jim");
+console.log(pqueue.Dequeue()+pqueue.Dequeue()); /* Expected: maryellen */
+console.log(pqueue.Dequeue()+pqueue.Dequeue()); /* Expected: jimbob */
